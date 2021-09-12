@@ -100,7 +100,7 @@ terminal-box: "../term_bkg_*.png"
 
 + canvas {
   left = 32%
-  width = 58%
+  width = 70%
   top = 15%
   height = 70%
   + image {file = "../menu_bkg_c.png"}

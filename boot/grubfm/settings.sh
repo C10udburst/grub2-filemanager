@@ -56,7 +56,6 @@ submenu $"Resolution (R): ${mode_current}" --class screen --hotkey "r" {
 
 submenu $"Theme (H)" --class screen --hotkey "h" {
   set lang=en_US;
-  terminal_output console;
   menuentry "Slack" {
     export theme_std=${prefix}/themes/slack/theme.txt;
     export theme_fm=${prefix}/themes/slack/fm.txt;
@@ -67,16 +66,17 @@ submenu $"Theme (H)" --class screen --hotkey "h" {
     export theme_hw_board=${prefix}/themes/slack/hwinfo/board.txt;
     configfile ${prefix}/settings.sh;
   }
-  menuentry "Other" {
-    export theme_std=${prefix}/themes/other/theme.txt;
-    export theme_fm=${prefix}/themes/other/fm.txt;
-    export theme_info=${prefix}/themes/other/info.txt;
-    export theme_hw_grub=${prefix}/themes/other/hwinfo/grub.txt;
-    export theme_hw_cpu=${prefix}/themes/other/hwinfo/cpu.txt;
-    export theme_hw_ram=${prefix}/themes/other/hwinfo/ram.txt;
-    export theme_hw_board=${prefix}/themes/other/hwinfo/board.txt;
+  menuentry "Ugly" {
+    export theme_std=${prefix}/themes/ugly/theme.txt;
+    export theme_fm=${prefix}/themes/ugly/fm.txt;
+    export theme_info=${prefix}/themes/ugly/info.txt;
+    export theme_hw_grub=${prefix}/themes/ugly/hwinfo/grub.txt;
+    export theme_hw_cpu=${prefix}/themes/ugly/hwinfo/cpu.txt;
+    export theme_hw_ram=${prefix}/themes/ugly/hwinfo/ram.txt;
+    export theme_hw_board=${prefix}/themes/ugly/hwinfo/board.txt;
     configfile ${prefix}/settings.sh;
   }
+  source ${prefix}/global.sh
 }
 
 if [ "${grub_fs_case_sensitive}" != "1" ];
