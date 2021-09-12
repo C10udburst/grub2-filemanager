@@ -54,6 +54,31 @@ submenu $"Resolution (R): ${mode_current}" --class screen --hotkey "r" {
   done;
 }
 
+submenu $"Theme (H)" --class screen --hotkey "h" {
+  set lang=en_US;
+  terminal_output console;
+  menuentry "Slack" {
+    export theme_std=${prefix}/themes/slack/theme.txt;
+    export theme_fm=${prefix}/themes/slack/fm.txt;
+    export theme_info=${prefix}/themes/slack/info.txt;
+    export theme_hw_grub=${prefix}/themes/slack/hwinfo/grub.txt;
+    export theme_hw_cpu=${prefix}/themes/slack/hwinfo/cpu.txt;
+    export theme_hw_ram=${prefix}/themes/slack/hwinfo/ram.txt;
+    export theme_hw_board=${prefix}/themes/slack/hwinfo/board.txt;
+    configfile ${prefix}/settings.sh;
+  }
+  menuentry "Other" {
+    export theme_std=${prefix}/themes/other/theme.txt;
+    export theme_fm=${prefix}/themes/other/fm.txt;
+    export theme_info=${prefix}/themes/other/info.txt;
+    export theme_hw_grub=${prefix}/themes/other/hwinfo/grub.txt;
+    export theme_hw_cpu=${prefix}/themes/other/hwinfo/cpu.txt;
+    export theme_hw_ram=${prefix}/themes/other/hwinfo/ram.txt;
+    export theme_hw_board=${prefix}/themes/other/hwinfo/board.txt;
+    configfile ${prefix}/settings.sh;
+  }
+}
+
 if [ "${grub_fs_case_sensitive}" != "1" ];
 then
   menuentry $"Enable case-sensitive filenames" --class strcase {
