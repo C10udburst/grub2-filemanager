@@ -54,29 +54,8 @@ submenu $"Resolution (R): ${mode_current}" --class screen --hotkey "r" {
   done;
 }
 
-submenu $"Theme (H)" --class screen --hotkey "h" {
-  set lang=en_US;
-  menuentry "Slack" {
-    export theme_std=${prefix}/themes/slack/theme.txt;
-    export theme_fm=${prefix}/themes/slack/fm.txt;
-    export theme_info=${prefix}/themes/slack/info.txt;
-    export theme_hw_grub=${prefix}/themes/slack/hwinfo/grub.txt;
-    export theme_hw_cpu=${prefix}/themes/slack/hwinfo/cpu.txt;
-    export theme_hw_ram=${prefix}/themes/slack/hwinfo/ram.txt;
-    export theme_hw_board=${prefix}/themes/slack/hwinfo/board.txt;
-    configfile ${prefix}/settings.sh;
-  }
-  menuentry "Ugly" {
-    export theme_std=${prefix}/themes/ugly/theme.txt;
-    export theme_fm=${prefix}/themes/ugly/fm.txt;
-    export theme_info=${prefix}/themes/ugly/info.txt;
-    export theme_hw_grub=${prefix}/themes/ugly/hwinfo/grub.txt;
-    export theme_hw_cpu=${prefix}/themes/ugly/hwinfo/cpu.txt;
-    export theme_hw_ram=${prefix}/themes/ugly/hwinfo/ram.txt;
-    export theme_hw_board=${prefix}/themes/ugly/hwinfo/board.txt;
-    configfile ${prefix}/settings.sh;
-  }
-  source ${prefix}/global.sh
+menuentry $"Theme (H)" --class png --hotkey "h" {
+  lua ${prefix}/themes.lua;
 }
 
 if [ "${grub_fs_case_sensitive}" != "1" ];
